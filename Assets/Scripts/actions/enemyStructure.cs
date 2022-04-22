@@ -9,10 +9,8 @@ public class enemyStructure : MonoBehaviour
     [SerializeField] protected float health = 100f;
     [SerializeField] protected Transform player;
     [SerializeField] protected GameObject finish;
-    //[SerializeField] protected gameManager GameManager;
-    public bool destroy = false;
-    protected NavMeshAgent enemy;
-
+     protected NavMeshAgent enemy;
+    
     protected virtual void Start()
     {
         enemy = GetComponent<NavMeshAgent>();
@@ -22,7 +20,7 @@ public class enemyStructure : MonoBehaviour
     public virtual void Damage()
     {
         health = health - 100;
-        
+ 
     }
     protected virtual void FindTarget()
     {
@@ -37,12 +35,7 @@ public class enemyStructure : MonoBehaviour
 
         }
     }
-    //public virtual void KilledEnemy()
-    //{
-    //    GameManager.enemyKilled();
-    //}
-
-    // Update is called once per frame
+ 
     protected virtual void Update()
     {
         

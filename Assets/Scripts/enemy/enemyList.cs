@@ -44,11 +44,15 @@ public class enemyList : MonoBehaviour
     public void enemyNumber()
     {
         numEnemy= enemys.Count;
+        gameManager.Instance.numberEnemy = numEnemy;
+
 
     }
     public void enemyNumberDecrease()
     {
-        numEnemy--;
+        
+        //numEnemy--;
+        gameManager.Instance.numberEnemy--;
         
 
     }

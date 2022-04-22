@@ -2,36 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class simpleEnemy : enemyStructure
+public class hugeEnemy : enemyModel
 {
     // Start is called before the first frame update
-     
-
-    protected override void Start()
+    [SerializeField] protected int health_huge = 100;
+    protected override void Awake()
     {
-        base.Start();   
+        base.Awake();
+        health = health_huge;
+
+
     }
     protected override void Update()
     {
         FindTarget();
-        EnemyDamaged();
+        
+        
+
     }
     protected override void OnCollisionEnter(Collision collision)
     {
         base.OnCollisionEnter(collision);
     }
-    public virtual void EnemyDamaged()
+
+
+    public override void Damage()
     {
+        base.Damage();
         if (health == 0)
         {
-             
-            gameObject.SetActive(false); 
+            gameObject.SetActive(false);
             gameManager.Instance.numberEnemy--;
 
         }
+
     }
- 
-
-
-
 }

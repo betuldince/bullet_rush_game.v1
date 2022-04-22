@@ -4,28 +4,31 @@ using UnityEngine;
 
 public class gameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public int numEnemy = 48;
-    public static gameManager ins;
-    public enemyList EnemyList;
-    void Awake()
+
+    public static gameManager Instance { get; private set;}
+    public int numberEnemy;
+
+    public int healthSimple=100;
+    public int healthBig=200;
+    private void Awake()
     {
-        ins = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
-     void Start()
+    private void Update()
     {
          
     }
-    public void enemyKilled()
-    {
-        numEnemy--;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-        Debug.Log(numEnemy);
 
-    }
+
+
+
 }

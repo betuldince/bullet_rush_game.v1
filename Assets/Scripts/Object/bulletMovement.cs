@@ -21,17 +21,10 @@ public class bulletMovement : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if ( collision.gameObject.tag == "enemy")
-        {
-            //collision.gameObject.SetActive(false);
-            
-            collision.gameObject.GetComponent<enemyStructure>().Damage();
-            Destroy(gameObject);
-        }else if (collision.gameObject.tag == "bigenemy")
-        {
-            collision.gameObject.GetComponent<bigEnemyStructure>().Damage();
-            Destroy(gameObject);
-        }
+
+        collision.gameObject.GetComponent<enemyModel>().Damage();
+        Destroy(gameObject);
+
 
     }
 }

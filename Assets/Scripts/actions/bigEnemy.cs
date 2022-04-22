@@ -27,9 +27,10 @@ public class bigEnemy : bigEnemyStructure
     {
         if (health == 0)
         {
-            //KilledEnemy();
-            gameObject.SetActive(false);
              
+            gameObject.SetActive(false);            
+            gameManager.Instance.numberEnemy--;
+
         }
     }
     public void KilledEnemy()
