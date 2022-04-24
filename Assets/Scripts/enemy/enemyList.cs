@@ -8,9 +8,16 @@ public class enemyList : MonoBehaviour
     [SerializeField] List<GameObject> enemys = new List<GameObject>();
     [SerializeField] GameObject player;
     public int numEnemy=0;
-    void Start()
+    void Awake()
     {
-        EnemyNumber();
+        
+        enemys = objectPool.instance.pooledObjectsEnemy;
+        //EnemyNumber();
+    }
+    private void Start()
+    {
+        gameManager.Instance.numberEnemy = enemys.Count;
+
     }
 
     // Update is called once per frame
