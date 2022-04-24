@@ -4,24 +4,36 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
-public class enemyModel : MonoBehaviour
+public class enemyMain : MonoBehaviour
 {
-    protected Transform player;
-    protected NavMeshAgent enemy;//tagla çalıştır
-    protected int health = 100;
     // Start is called before the first frame update
+    protected Transform player;
+    private enemySpawner enemySpawned;
+    protected int health = 100;
+    GameObject[] enemies;
     protected virtual void Awake()
     {
-        
-        enemy = GetComponent<NavMeshAgent>();
+        //enemySpawned.SpawnEnemy();
+        enemies = GameObject.FindGameObjectsWithTag("enemySpawned");
         player = GameObject.FindWithTag("Player").gameObject.transform;
 
     }
-    protected virtual void FindTarget()
+    protected virtual void Start()
     {
-        enemy.SetDestination(player.position);
+
+
     }
 
+    protected virtual void FindTarget()
+    {
+
+
+
+        foreach(var x in enemies)
+        {
+            x.transform.position= Vector3.MoveTowards(transform.position, player.transform.position, .06f); 
+        }
+    }
     protected virtual void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -34,8 +46,10 @@ public class enemyModel : MonoBehaviour
     }
     public virtual void Damage()
     {
-        health =health -100;
         
+        health = health - 100;
+        Debug.Log(health);
+
     }
 
 

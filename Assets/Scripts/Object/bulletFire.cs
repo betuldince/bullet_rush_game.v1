@@ -10,7 +10,7 @@ public class bulletFire : MonoBehaviour
     public void FireBullet()
     {
         //GameObject bullet = Instantiate(bulletP,  Point.position,  Point.rotation);
-        GameObject bullet = objectPool.instance.GetPooledObject();
+        GameObject bullet = objectPool.instance.GetPooledBullet();
         if (bullet != null)
         {
             bullet.transform.position = Point.position;

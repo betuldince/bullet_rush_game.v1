@@ -17,6 +17,8 @@ public class PlayerMove : MonoBehaviour
     public GameObject gun;
     public static float distance;
     private bool isAttacked=false;
+    private enemySpawner enemySpawned;
+    [SerializeField] private enemySpawner _enemySpawner;
 
 
     // Update is called once per frame
@@ -24,6 +26,7 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        
 
         if (Input.touches.Length > 0)
         {
@@ -88,6 +91,8 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         //StartCoroutine(firebullet());
+        _enemySpawner.SpawnEnemy();
+
     }
     private void stop()
     {

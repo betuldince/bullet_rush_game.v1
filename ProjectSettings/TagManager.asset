@@ -6,6 +6,7 @@ TagManager:
   tags:
   - enemy
   - bigenemy
+  - enemySpawned
   layers:
   - Default
   - TransparentFX
