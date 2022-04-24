@@ -57,7 +57,7 @@ public class PlayerMove : MonoBehaviour
             transform.Translate(xt, 0, yt);
 
         }
-        rotateGun();
+        RotateGun();
         //StartCoroutine(firebullet());
         distance = Vector3.Distance(gameObject.transform.position, EnemyList.ClosestEnemy().position);
         if (distance > 15f)
@@ -74,7 +74,7 @@ public class PlayerMove : MonoBehaviour
 
     }
 
-    private void rotateGun()
+    private void RotateGun()
     {
         Transform c_enemy = EnemyList.ClosestEnemy();
 

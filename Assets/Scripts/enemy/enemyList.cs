@@ -10,7 +10,7 @@ public class enemyList : MonoBehaviour
     public int numEnemy=0;
     void Start()
     {
-        enemyNumber();
+        EnemyNumber();
     }
 
     // Update is called once per frame
@@ -41,7 +41,7 @@ public class enemyList : MonoBehaviour
         return temp;
 
     }
-    public void enemyNumber()
+    public void EnemyNumber()
     {
         numEnemy= enemys.Count;
         gameManager.Instance.numberEnemy = numEnemy;
@@ -51,7 +51,6 @@ public class enemyList : MonoBehaviour
     public void enemyNumberDecrease()
     {
         
-        //numEnemy--;
         gameManager.Instance.numberEnemy--;
         
 

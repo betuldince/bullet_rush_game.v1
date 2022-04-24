@@ -7,23 +7,30 @@ public class bulletMovement : MonoBehaviour
     // Start is called before the first frame update
     private float speed = 25f;
     private Rigidbody rb;
-    private float counter = 0;
+    [SerializeField] private enemyList EnemyList;
+    private Vector3 _movement;
+
+    //private float counter = 0;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Destroy(gameObject, 10f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.MovePosition(rb.position + (transform.forward * Time.deltaTime * speed));
+        rb.MovePosition(rb.position + (-transform.right.normalized * Time.deltaTime * speed));
+   
+
     }
+
+
     private void OnCollisionEnter(Collision collision)
     {
 
         collision.gameObject.GetComponent<enemyModel>().Damage();
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
 
 
     }

@@ -16,8 +16,7 @@ public class bigEnemy : bigEnemyStructure
     {
         FindTarget();
         EnemyDamaged();
-         
-        
+   
     }
     protected override void OnCollisionEnter(Collision collision)
     {
