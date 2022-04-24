@@ -28,20 +28,22 @@ public class bulletMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.tag == "enemySpawned")
-        {
-            collision.gameObject.GetComponent<enemyMain>().Damage();
-            gameObject.SetActive(false);
+        //if (collision.gameObject.tag == "enemySpawned"|| collision.gameObject.tag == "Simple"|| collision.gameObject.tag == "Big")
+        //{
+        //    collision.gameObject.GetComponent<enemyMain>().Damage();
+        //    gameObject.SetActive(false);
 
 
-        }
-        else
-        {
-            collision.gameObject.GetComponent<enemyModel>().Damage();
-            gameObject.SetActive(false);
+        //}
+        //else
+        //{
+        //    collision.gameObject.GetComponent<enemyModel>().Damage();
+        //    gameObject.SetActive(false);
 
 
-        }
+        //}
+        collision.gameObject.GetComponent<enemyMain>().Damage();
+        gameObject.SetActive(false);
 
 
 

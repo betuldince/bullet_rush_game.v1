@@ -11,8 +11,11 @@ public class objectPool : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     private List<GameObject> pooledObjectsEnemy = new List<GameObject>();
     private int amountToPoolEnemy = 5;
-    [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] public Transform SpawnPoint;
+    [SerializeField] private GameObject enemyPrefabS;
+    [SerializeField] private GameObject enemyPrefabB;
+
+    [SerializeField] public Transform spawnPointSimple;
+
     private void Awake()
     {
         if (instance == null)
@@ -25,9 +28,15 @@ public class objectPool : MonoBehaviour
     {
         for(int i = 0; i < amountToPoolEnemy; i++)
         {
-            GameObject obj0 = Instantiate(enemyPrefab);
+            GameObject obj0 = Instantiate(enemyPrefabS);
             obj0.SetActive(false);
-            //obj.transform.position += Vector3(0, 4, 0);
+            pooledObjectsEnemy.Add(obj0);
+
+        }
+        for (int i = 0; i < amountToPoolEnemy; i++)
+        {
+            GameObject obj0 = Instantiate(enemyPrefabB);
+            obj0.SetActive(false);
             pooledObjectsEnemy.Add(obj0);
 
         }

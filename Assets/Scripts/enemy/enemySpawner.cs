@@ -5,27 +5,32 @@ using UnityEngine;
 public class enemySpawner : MonoBehaviour
 {
     // Start is called before the first frame update
-    private Transform SpawningPoint;
+    private Transform SpawningPointS;
+
     void Start()
     {
-        SpawningPoint = objectPool.instance.SpawnPoint;
-       
+        SpawningPointS = objectPool.instance.spawnPointSimple;
+
+
     }
     public void SpawnEnemy()
     {
         //GameObject bullet = Instantiate(bulletP,  Point.position,  Point.rotation);
-        for(int i = 0; i < 4; i++)
+        for(int i = 0; i < 10; i++)
         {
-            GameObject enemySpawn = objectPool.instance.GetPooledEnemy();
+            GameObject enemySpawnS = objectPool.instance.GetPooledEnemy();
 
-            if (enemySpawn != null)
+            if (enemySpawnS != null)
             {
-                enemySpawn.transform.position = SpawningPoint.position;
-                SpawningPoint.position = SpawningPoint.position + new Vector3(1.0f, 0f, 0f);
-                enemySpawn.SetActive(true);
+                enemySpawnS.transform.position = SpawningPointS.position;
+                SpawningPointS.position = SpawningPointS.position + new Vector3(2.0f, 0f, 0f);
+                enemySpawnS.SetActive(true);
+
 
             }
+
         }
+
 
 
     }

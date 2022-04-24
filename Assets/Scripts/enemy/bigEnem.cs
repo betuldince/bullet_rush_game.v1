@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class bigEnem : enemyMain
 {
-    [SerializeField] protected int health_big = 100;
+    [SerializeField] protected int health_big = 200;
 
     // Start is called before the first frame update
     protected override void Awake()
     {
         base.Awake();
+
         health = health_big;
 
     }

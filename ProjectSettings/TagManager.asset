@@ -7,6 +7,8 @@ TagManager:
   - enemy
   - bigenemy
   - enemySpawned
+  - Simple
+  - Big
   layers:
   - Default
   - TransparentFX

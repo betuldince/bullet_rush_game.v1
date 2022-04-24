@@ -8,13 +8,13 @@ public class enemyMain : MonoBehaviour
 {
     // Start is called before the first frame update
     protected Transform player;
-    private enemySpawner enemySpawned;
     protected int health = 100;
-    GameObject[] enemies;
+    protected NavMeshAgent enemy;//tagla çalıştır
+
     protected virtual void Awake()
     {
-        //enemySpawned.SpawnEnemy();
-        enemies = GameObject.FindGameObjectsWithTag("enemySpawned");
+        enemy = GetComponent<NavMeshAgent>();
+
         player = GameObject.FindWithTag("Player").gameObject.transform;
 
     }
@@ -27,12 +27,8 @@ public class enemyMain : MonoBehaviour
     protected virtual void FindTarget()
     {
 
+        enemy.SetDestination(player.position);
 
-
-        foreach(var x in enemies)
-        {
-            x.transform.position= Vector3.MoveTowards(transform.position, player.transform.position, .06f); 
-        }
     }
     protected virtual void OnCollisionEnter(Collision collision)
     {
@@ -48,7 +44,6 @@ public class enemyMain : MonoBehaviour
     {
         
         health = health - 100;
-        Debug.Log(health);
 
     }
 

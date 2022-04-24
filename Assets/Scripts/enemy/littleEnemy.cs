@@ -10,6 +10,7 @@ public class littleEnemy : enemyMain
     protected override void Awake()
     {
         base.Awake();
+
         health = health_simple;
 
     }
@@ -32,7 +33,7 @@ public class littleEnemy : enemyMain
         base.Damage();
         if (health == 0)
         {
-            Debug.Log("??");
+            
             gameObject.SetActive(false);
             gameManager.Instance.numberEnemy--;
 
