@@ -24,8 +24,9 @@ public class gameManager : MonoBehaviour
     }
     private void Update()
     {
-         
+
     }
+
 
 
 

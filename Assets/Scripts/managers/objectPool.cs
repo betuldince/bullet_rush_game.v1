@@ -10,11 +10,13 @@ public class objectPool : MonoBehaviour
     private int amountToPoolBullet = 2;
     [SerializeField] private GameObject bulletPrefab;
     public List<GameObject> pooledObjectsEnemy = new List<GameObject>();
-    private int amountToPoolEnemy = 5;
+ 
     [SerializeField] private GameObject enemyPrefabS;
     [SerializeField] private GameObject enemyPrefabB;
 
     [SerializeField] public Transform spawnPointSimple;
+    private int amountToPoolEnemySimple ;
+    private int amountToPoolEnemyBig ;
 
     private void Awake()
     {
@@ -26,14 +28,18 @@ public class objectPool : MonoBehaviour
 
     void Start()
     {
-        for(int i = 0; i < amountToPoolEnemy; i++)
+        Debug.Log("create"); 
+        amountToPoolEnemySimple = levelManager.Instance.simple_enemy_num;
+        amountToPoolEnemyBig = levelManager.Instance.big_enemy_num;
+
+        for (int i = 0; i < amountToPoolEnemySimple; i++)
         {
             GameObject obj0 = Instantiate(enemyPrefabS);
             obj0.SetActive(false);
             pooledObjectsEnemy.Add(obj0);
 
         }
-        for (int i = 0; i < amountToPoolEnemy; i++)
+        for (int i = 0; i < amountToPoolEnemyBig; i++)
         {
             GameObject obj0 = Instantiate(enemyPrefabB);
             obj0.SetActive(false);

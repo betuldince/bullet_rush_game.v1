@@ -6,20 +6,30 @@ public class enemySpawner : MonoBehaviour
 {
     // Start is called before the first frame update
     private Transform SpawningPointS;
+    private int total_enemy;
+    public static enemySpawner instance;
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
+    }
     void Start()
     {
         SpawningPointS = objectPool.instance.spawnPointSimple;
-
+        total_enemy = levelManager.Instance.simple_enemy_num + levelManager.Instance.big_enemy_num;
 
     }
     public void SpawnEnemy()
     {
         //GameObject bullet = Instantiate(bulletP,  Point.position,  Point.rotation);
-        for(int i = 0; i < 10; i++)
+        for(int i = 0; i < total_enemy; i++)
         {
             GameObject enemySpawnS = objectPool.instance.GetPooledEnemy();
-
+            
             if (enemySpawnS != null)
             {
                 enemySpawnS.transform.position = SpawningPointS.position;

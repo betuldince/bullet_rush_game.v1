@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerMove : MonoBehaviour
 {
@@ -75,7 +77,14 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
+
+        if (gameManager.Instance.numberEnemy == 0)
+        {
+            canvasManager.Instance.PlayerWon();
+        }
     }
+
+
 
     private void RotateGun()
     {
@@ -90,7 +99,6 @@ public class PlayerMove : MonoBehaviour
 
     private void Start()
     {
-        //StartCoroutine(firebullet());
         _enemySpawner.SpawnEnemy();
 
     }
