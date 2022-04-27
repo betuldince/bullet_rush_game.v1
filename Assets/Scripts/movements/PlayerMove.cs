@@ -62,20 +62,37 @@ public class PlayerMove : MonoBehaviour
             transform.Translate(xt, 0, yt);
 
         }
-        RotateGun();
-        //StartCoroutine(firebullet());
-        distance = Vector3.Distance(gameObject.transform.position, EnemyList.ClosestEnemy().position);
-        if (distance > 15f)
+        if (gameManager.Instance.numberEnemy!=0)
         {
-            stop();
-        }
-        else
-        {
-            if (!isAttacked)
+            RotateGun();
+            distance = Vector3.Distance(gameObject.transform.position, EnemyList.ClosestEnemy().position);
+
+            if (distance > 20f)
             {
-                StartCoroutine(firebullet());
+                stop();
+            }
+            else
+            {
+                if (!isAttacked)
+                {
+                    StartCoroutine(firebullet());
+                }
             }
         }
+        //RotateGun();
+        //StartCoroutine(firebullet());
+        //distance = Vector3.Distance(gameObject.transform.position, EnemyList.ClosestEnemy().position);
+        //if (distance > 20f)
+        //{
+        //    stop();
+        //}
+        //else
+        //{
+        //    if (!isAttacked)
+        //    {
+        //        StartCoroutine(firebullet());
+        //    }
+        //}
 
 
         if (gameManager.Instance.numberEnemy == 0)

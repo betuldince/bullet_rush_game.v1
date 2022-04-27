@@ -9,7 +9,6 @@ public class bulletMovement : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] private enemyList EnemyList; //eski haline döndür dene
     private Vector3 _movement;
-
     //private float counter = 0;
     void Start()
     {
@@ -28,7 +27,7 @@ public class bulletMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
- 
+        
         collision.gameObject.GetComponent<enemyMain>().Damage();
         gameObject.SetActive(false);
 

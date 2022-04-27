@@ -29,7 +29,7 @@ public class enemyList : MonoBehaviour
     public Transform ClosestEnemy()
     {
 
-
+        enemys = objectPool.instance.pooledObjectsEnemy;
         if (enemys.Count == 0) return null;
 
 

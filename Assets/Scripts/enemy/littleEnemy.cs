@@ -5,6 +5,7 @@ using UnityEngine;
 public class littleEnemy : enemyMain
 {
     [SerializeField] protected int health_simple = 100;
+    Animator anim;
 
     // Start is called before the first frame update
     protected override void Awake()
@@ -17,6 +18,8 @@ public class littleEnemy : enemyMain
     protected override void Start()
     {
         base.Start();
+        anim = GetComponent<Animator>();
+
     }
 
     protected override void Update()
@@ -33,9 +36,11 @@ public class littleEnemy : enemyMain
         base.Damage();
         if (health == 0)
         {
-            
-            gameObject.SetActive(false);
+
+            //gameObject.SetActive(false);
+            anim.SetBool("isDying", true);
             gameManager.Instance.numberEnemy--;
+            //gameObject.GetComponent<BoxCollider>().enabled = false;
 
         }
     }
