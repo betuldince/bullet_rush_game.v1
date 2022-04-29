@@ -21,6 +21,7 @@ public class PlayerMove : MonoBehaviour
     private bool isAttacked=false;
     private enemySpawner enemySpawned;
     [SerializeField] private enemySpawner _enemySpawner;
+    public Animator anim;
 
 
     // Update is called once per frame
@@ -57,6 +58,7 @@ public class PlayerMove : MonoBehaviour
 
         if (isSwipe)
         {
+            PlayerRun(true);
             xt = swipe.x * Time.deltaTime * speed;
             yt = swipe.y * Time.deltaTime * speed;
             transform.Translate(xt, 0, yt);
@@ -65,19 +67,19 @@ public class PlayerMove : MonoBehaviour
         if (gameManager.Instance.numberEnemy!=0)
         {
             RotateGun();
-            distance = Vector3.Distance(gameObject.transform.position, EnemyList.ClosestEnemy().position);
+            //distance = Vector3.Distance(gameObject.transform.position, EnemyList.ClosestEnemy().position);
 
-            if (distance > 20f)
-            {
-                stop();
-            }
-            else
-            {
-                if (!isAttacked)
-                {
-                    StartCoroutine(firebullet());
-                }
-            }
+            //if (distance > 20f)
+            //{
+            //    stop();
+            //}
+            //else
+            //{
+            //    if (!isAttacked)
+            //    {
+            //        StartCoroutine(firebullet());
+            //    }
+            //}
         }
         //RotateGun();
         //StartCoroutine(firebullet());
@@ -105,12 +107,32 @@ public class PlayerMove : MonoBehaviour
 
     private void RotateGun()
     {
-        Transform c_enemy = EnemyList.ClosestEnemy();
+        //Transform c_enemy = EnemyList.ClosestEnemy();
 
-        Quaternion lookRot = Quaternion.LookRotation(c_enemy.position - transform.position);
-        gun.transform.rotation = Quaternion.RotateTowards(gun.transform.rotation, lookRot, 30f * Time.deltaTime);
+        //Quaternion lookRot = Quaternion.LookRotation(c_enemy.position - transform.position);
+        //gun.transform.rotation = Quaternion.RotateTowards(gun.transform.rotation, lookRot, 30f * Time.deltaTime);
+        distance = Vector3.Distance(gameObject.transform.position, EnemyList.ClosestEnemy().position);
+
+        if (distance > 20f)
+        {
+            stop();
+        }
+        else
+        {
+            if (!isAttacked)
+            {
+                StartCoroutine(firebullet());
+
+
+
+            }
+        }
     }
 
+    public void PlayerRun(bool isRunning)
+    {
+        anim.SetBool("isRunning", isRunning);
+    }
 
 
 

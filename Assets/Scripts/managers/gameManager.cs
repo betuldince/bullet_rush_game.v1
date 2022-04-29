@@ -10,6 +10,8 @@ public class gameManager : MonoBehaviour
 
     public int healthSimple=100;
     public int healthBig=200;
+    [SerializeField] private enemySpawner _enemySpawner;
+
     private void Awake()
     {
         if (Instance == null)
@@ -22,8 +24,9 @@ public class gameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void Update()
+    private void Start()
     {
+        _enemySpawner.SpawnEnemy();
 
     }
 

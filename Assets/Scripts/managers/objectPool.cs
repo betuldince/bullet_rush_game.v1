@@ -7,7 +7,7 @@ public class objectPool : MonoBehaviour
     // Start is called before the first frame update
     public static objectPool instance;
     private List<GameObject> pooledObjectsBullet = new List<GameObject>();
-    private int amountToPoolBullet = 3;
+    private int amountToPoolBullet = 8;
     [SerializeField] private GameObject bulletPrefab;
     public List<GameObject> pooledObjectsEnemy = new List<GameObject>();
  

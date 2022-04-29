@@ -37,10 +37,9 @@ public class littleEnemy : enemyMain
         if (health == 0)
         {
 
-            //gameObject.SetActive(false);
-            anim.SetBool("isDying", true);
+            gameObject.SetActive(false);
+            //anim.SetBool("isDying", true);
             gameManager.Instance.numberEnemy--;
-            //gameObject.GetComponent<BoxCollider>().enabled = false;
 
         }
     }
