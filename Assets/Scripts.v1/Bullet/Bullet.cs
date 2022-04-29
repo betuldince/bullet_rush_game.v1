@@ -35,9 +35,12 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
+        if (collision.gameObject.tag == "enemy")
+        {
+            collision.gameObject.GetComponent<enemyMain>().Damage();
+            gameObject.SetActive(false);
+        }
 
-        collision.gameObject.GetComponent<enemyMain>().Damage();
-        gameObject.SetActive(false);
 
 
     }

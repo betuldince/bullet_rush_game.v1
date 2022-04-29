@@ -33,7 +33,7 @@ public class bigEnem : enemyMain
         base.Damage();
         if (health == 0)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             EnemySpawn.Instance.enemies.Remove(gameObject);
             CanvasManager.Instance.PrintNumberOfEnemy();
             GameManager.Instance.EnemyDied();

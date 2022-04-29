@@ -37,7 +37,8 @@ public class BulletSpawn : MonoBehaviour
     }
     private Vector3 GetClosestEnemyPos(GameObject[] enemies)
     {
-        Vector3 closestEnemyPos = enemies[0].transform.position;
+        //Vector3 closestEnemyPos = enemies[0].transform.position;
+        Vector3 closestEnemyPos = new Vector3(0f,0f,0f);
         float closestDistance = (closestEnemyPos - gameObject.transform.position).magnitude;
 
         for (int i = 0; i < enemies.Length; i++)

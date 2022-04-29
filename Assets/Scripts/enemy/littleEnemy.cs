@@ -36,7 +36,7 @@ public class littleEnemy : enemyMain
         if (health == 0)
         {
 
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             EnemySpawn.Instance.enemies.Remove(gameObject);
             //anim.SetBool("isDying", true);
             //gameManager.Instance.numberEnemy--;
