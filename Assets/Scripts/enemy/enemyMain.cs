@@ -10,6 +10,7 @@ public class enemyMain : MonoBehaviour
     protected Transform player;
     protected int health = 100;
     protected NavMeshAgent enemy;//tagla çalıştır
+    //public Animator anim;
 
     protected virtual void Awake()
     {
@@ -21,7 +22,7 @@ public class enemyMain : MonoBehaviour
     protected virtual void Start()
     {
 
-
+         
     }
 
     protected virtual void FindTarget()
@@ -46,6 +47,10 @@ public class enemyMain : MonoBehaviour
         health = health - 100;
 
     }
+    //protected virtual void EnemyRun(bool isRunning)
+    //{
+    //    anim.SetBool("isRunning", isRunning);
+    //}
 
 
     // Update is called once per frame
@@ -53,4 +58,5 @@ public class enemyMain : MonoBehaviour
     {
 
     }
+
 }

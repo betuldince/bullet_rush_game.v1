@@ -32,4 +32,13 @@ public class Bullet : MonoBehaviour
         gameObject.SetActive(false);
 
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+
+
+        collision.gameObject.GetComponent<enemyMain>().Damage();
+        gameObject.SetActive(false);
+
+
+    }
 }

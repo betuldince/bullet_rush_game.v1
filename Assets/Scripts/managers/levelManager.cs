@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class levelManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Text remainingEnemy;
     public static levelManager Instance { get; private set; }
 
     [SerializeField] levels[] levels;
@@ -39,13 +38,9 @@ public class levelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PrintNumberOfEnemy();
-        currentLevel = levels[level_count];
+
     }
-    void PrintNumberOfEnemy()
-    {
-        remainingEnemy.text = gameManager.Instance.numberEnemy.ToString();
-    }
+
     public void NextLevel()
     {
         level_count++;
