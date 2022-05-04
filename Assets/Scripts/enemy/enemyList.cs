@@ -30,7 +30,7 @@ public class enemyList : MonoBehaviour
     {
 
         enemys = objectPool.instance.pooledObjectsEnemy;
-        Debug.Log(enemys.Count);
+        
         if (enemys.Count == 0) return null;
 
 
